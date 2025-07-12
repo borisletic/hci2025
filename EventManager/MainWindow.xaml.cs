@@ -1,24 +1,20 @@
-﻿using System.Text;
+﻿using EventManager.Services;
+using EventManager.Views.Pages;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace EventManager
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+
+            // Initialize Navigation Service
+            NavigationService.Instance.MainFrame = MainFrame;
+
+            // Navigate to Home Page
+            NavigationService.Instance.NavigateTo("Home");
         }
     }
 }

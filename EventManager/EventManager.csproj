@@ -17,11 +17,7 @@
     <Folder Include="Assets\Images\" />
     <Folder Include="Assets\Icons\" />
     <Folder Include="Data\" />
-    <Folder Include="Styles\" />
-    <Folder Include="Services\" />
-    <Folder Include="ViewModels\" />
     <Folder Include="Views\Controls\" />
-    <Folder Include="Views\Pages\" />
   </ItemGroup>
 
 </Project>

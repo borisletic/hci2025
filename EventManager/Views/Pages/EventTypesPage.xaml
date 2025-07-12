@@ -1,0 +1,83 @@
+﻿<Page x:Class="EventManager.Views.Pages.EventTypesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid Background="{StaticResource LightGrayBrush}">
+        <!-- Action Bar -->
+        <Grid Style="{StaticResource ActionBarStyle}" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Button x:Name="BackButton" Style="{StaticResource HamburgerButton}"
+                       Content="&#xE72B;" Click="BackButton_Click"/>
+                <TextBlock Text="Event Types" FontSize="18" FontWeight="Bold"
+                          Foreground="{StaticResource WhiteBrush}" VerticalAlignment="Center" Margin="10,0"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Content -->
+        <ScrollViewer Margin="0,60,0,0">
+            <StackPanel Style="{StaticResource MobileContainer}">
+
+                <!-- Event Types List -->
+                <StackPanel Margin="0,10">
+                    <!-- Music Fest -->
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <Button Content="⚙️" FontSize="20" Background="Transparent" BorderThickness="0" Width="40"/>
+                        <TextBlock Text="Music Fest" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Width="100"/>
+                        <Button Content="✏️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
+                        <Button Content="ℹ️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
+                        <Button Content="🗑️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
+                    </StackPanel>
+
+                    <!-- Sports Event -->
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <Button Content="⚙️" FontSize="20" Background="Transparent" BorderThickness="0" Width="40"/>
+                        <TextBlock Text="Sports Event" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Width="100"/>
+                        <Button Content="✏️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
+                        <Button Content="ℹ️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
+                        <Button Content="🗑️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
+                    </StackPanel>
+
+                    <!-- Conference -->
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <Button Content="⚙️" FontSize="20" Background="Transparent" BorderThickness="0" Width="40"/>
+                        <TextBlock Text="Conference" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Width="100"/>
+                        <Button Content="✏️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
+                        <Button Content="ℹ️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
+                        <Button Content="🗑️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- Add New Event Type Form -->
+                <Border Background="{StaticResource WhiteBrush}" 
+                       BorderBrush="{StaticResource DarkGrayBrush}" 
+                       BorderThickness="1" 
+                       CornerRadius="8" 
+                       Padding="15" 
+                       Margin="0,20">
+
+                    <StackPanel>
+                        <TextBlock Text="Add New Event Type" FontSize="18" FontWeight="Bold" Margin="0,0,0,15"/>
+
+                        <TextBlock Text="Event Type ID:" Style="{StaticResource FieldLabel}"/>
+                        <TextBox Style="{StaticResource LargeTextBox}"/>
+
+                        <TextBlock Text="Name:" Style="{StaticResource FieldLabel}"/>
+                        <TextBox Style="{StaticResource LargeTextBox}"/>
+
+                        <TextBlock Text="Description:" Style="{StaticResource FieldLabel}"/>
+                        <TextBox Style="{StaticResource LargeTextBox}"/>
+
+                        <TextBlock Text="Icon:" Style="{StaticResource FieldLabel}"/>
+                        <Button Content="📁 Choose icon" Style="{StaticResource LargeMobileButton}" HorizontalAlignment="Left"/>
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20">
+                            <Button Content="➕ Add New Event Type" Style="{StaticResource SuccessButton}" Margin="5"/>
+                            <Button Content="❌ Cancel" Style="{StaticResource DangerButton}" Margin="5"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

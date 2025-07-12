@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\Win 11\Desktop\hci2025\EventManager\App.xaml
-11407045341
+11-1088396242
 
-101075233256
+231049248646
 200-129126366
-MainWindow.xaml;
+MainWindow.xaml;Styles\MobileStyles.xaml;ViewModels\HomePageViewModel.xaml;Views\Pages\DemoPage.xaml;Views\Pages\EventFormPage.xaml;Views\Pages\EventInfoPage.xaml;Views\Pages\EventListPage.xaml;Views\Pages\EventTypesPage.xaml;Views\Pages\HomePage.xaml;Views\Pages\TagsPage.xaml;Views\Pages\WorldMapPage.xaml;
 
-False
+True
 

@@ -1,0 +1,86 @@
+﻿<Page x:Class="EventManager.Views.Pages.TagsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid Background="{StaticResource LightGrayBrush}">
+        <!-- Action Bar -->
+        <Grid Style="{StaticResource ActionBarStyle}" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Button x:Name="BackButton" Style="{StaticResource HamburgerButton}"
+                       Content="&#xE72B;" Click="BackButton_Click"/>
+                <TextBlock Text="Tags" FontSize="18" FontWeight="Bold"
+                          Foreground="{StaticResource WhiteBrush}" VerticalAlignment="Center" Margin="10,0"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Content -->
+        <ScrollViewer Margin="0,60,0,0">
+            <StackPanel Style="{StaticResource MobileContainer}">
+
+                <!-- Tags List -->
+                <StackPanel Margin="0,10">
+                    <!-- Open Air -->
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <Button Content="🏷️" FontSize="20" Background="Transparent" BorderThickness="0" Width="40"/>
+                        <TextBlock Text="Open Air" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Width="80"/>
+                        <Button Content="✏️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
+                        <Button Content="ℹ️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
+                        <Button Content="🗑️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
+                    </StackPanel>
+
+                    <!-- Closed Event -->
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <Button Content="🏷️" FontSize="20" Background="Transparent" BorderThickness="0" Width="40"/>
+                        <TextBlock Text="Closed Event" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Width="80"/>
+                        <Button Content="✏️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
+                        <Button Content="ℹ️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
+                        <Button Content="🗑️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
+                    </StackPanel>
+
+                    <!-- VIP Access -->
+                    <StackPanel Orientation="Horizontal" Margin="0,5">
+                        <Button Content="🏷️" FontSize="20" Background="Transparent" BorderThickness="0" Width="40"/>
+                        <TextBlock Text="VIP Access" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Width="80"/>
+                        <Button Content="✏️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
+                        <Button Content="ℹ️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
+                        <Button Content="🗑️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <!-- Add New Tag Form -->
+                <Border Background="{StaticResource WhiteBrush}" 
+                       BorderBrush="{StaticResource DarkGrayBrush}" 
+                       BorderThickness="1" 
+                       CornerRadius="8" 
+                       Padding="15" 
+                       Margin="0,20">
+
+                    <StackPanel>
+                        <TextBlock Text="Add New Tag" FontSize="18" FontWeight="Bold" Margin="0,0,0,15"/>
+
+                        <TextBlock Text="Tag ID:" Style="{StaticResource FieldLabel}"/>
+                        <TextBox Style="{StaticResource LargeTextBox}"/>
+
+                        <TextBlock Text="Tag Name:" Style="{StaticResource FieldLabel}"/>
+                        <TextBox Style="{StaticResource LargeTextBox}"/>
+
+                        <TextBlock Text="Description:" Style="{StaticResource FieldLabel}"/>
+                        <TextBox Style="{StaticResource LargeTextBox}"/>
+
+                        <TextBlock Text="Color:" Style="{StaticResource FieldLabel}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="🎨 Choose color" Style="{StaticResource LargeMobileButton}" Width="150"/>
+                            <TextBlock Text="Color" VerticalAlignment="Center" Margin="10,0"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20">
+                            <Button Content="➕ Add New Tag" Style="{StaticResource SuccessButton}" Margin="5"/>
+                            <Button Content="❌ Cancel" Style="{StaticResource DangerButton}" Margin="5"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

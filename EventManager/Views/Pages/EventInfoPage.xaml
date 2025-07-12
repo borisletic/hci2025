@@ -1,0 +1,68 @@
+﻿<Page x:Class="EventManager.Views.Pages.EventInfoPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid Background="{StaticResource LightGrayBrush}">
+        <!-- Action Bar -->
+        <Grid Style="{StaticResource ActionBarStyle}" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Button x:Name="BackButton" Style="{StaticResource HamburgerButton}"
+                       Content="&#xE72B;" Click="BackButton_Click"/>
+                <TextBlock Text="Event Info" FontSize="18" FontWeight="Bold"
+                          Foreground="{StaticResource WhiteBrush}" VerticalAlignment="Center" Margin="10,0"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Content -->
+        <ScrollViewer Margin="0,60,0,0">
+            <StackPanel Style="{StaticResource MobileContainer}">
+
+                <TextBlock Text="Event ID:" Style="{StaticResource FieldLabel}"/>
+                <TextBlock Text="{Binding EventId}" FontSize="16" Margin="10,0,0,10"/>
+
+                <TextBlock Text="Event Name:" Style="{StaticResource FieldLabel}"/>
+                <TextBlock Text="{Binding Name}" FontSize="16" Margin="10,0,0,10"/>
+
+                <TextBlock Text="Event Description:" Style="{StaticResource FieldLabel}"/>
+                <TextBlock Text="{Binding Description}" FontSize="16" Margin="10,0,0,10" TextWrapping="Wrap"/>
+
+                <TextBlock Text="Event Type:" Style="{StaticResource FieldLabel}"/>
+                <TextBlock Text="{Binding EventType.Name}" FontSize="16" Margin="10,0,0,10"/>
+
+                <TextBlock Text="Attendance:" Style="{StaticResource FieldLabel}"/>
+                <TextBlock Text="{Binding AttendanceDisplay}" FontSize="16" Margin="10,0,0,10"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,10">
+                    <TextBlock Text="Humanitarian Event:" Style="{StaticResource FieldLabel}"/>
+                    <CheckBox IsChecked="{Binding IsHumanitarian}" IsEnabled="False" VerticalAlignment="Center" Margin="10,0"/>
+                    <TextBlock Text="Yes" VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <TextBlock Text="Average Price ($):" Style="{StaticResource FieldLabel}"/>
+                <TextBlock Text="{Binding AveragePrice, StringFormat='${0}'}" FontSize="16" Margin="10,0,0,10"/>
+
+                <TextBlock Text="Country:" Style="{StaticResource FieldLabel}"/>
+                <TextBlock Text="{Binding Country}" FontSize="16" Margin="10,0,0,10"/>
+
+                <TextBlock Text="City:" Style="{StaticResource FieldLabel}"/>
+                <TextBlock Text="{Binding City}" FontSize="16" Margin="10,0,0,10"/>
+
+                <TextBlock Text="Icon:" Style="{StaticResource FieldLabel}"/>
+                <TextBlock Text="📁 Icon" FontSize="16" Margin="10,0,0,10"/>
+
+                <TextBlock Text="Date This Year:" Style="{StaticResource FieldLabel}"/>
+                <TextBlock Text="{Binding CurrentYearDate, StringFormat='yyyy-MM-dd'}" FontSize="16" Margin="10,0,0,10"/>
+
+                <TextBlock Text="Previous Dates:" Style="{StaticResource FieldLabel}"/>
+                <TextBlock Text="{Binding PreviousDatesDisplay}" FontSize="16" Margin="10,0,0,10"/>
+
+                <TextBlock Text="Labels:" Style="{StaticResource FieldLabel}"/>
+                <TextBlock Text="✓ open air" FontSize="16" Margin="10,0,0,10"/>
+
+                <Button Content="🔙 Back" Style="{StaticResource PrimaryButton}" 
+                       Click="BackButton_Click" HorizontalAlignment="Center" Margin="0,30"/>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
