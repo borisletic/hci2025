@@ -1,0 +1,61 @@
+[
+  {
+    "EventId": "exit-festival",
+    "Name": "Exit Festival",
+    "Description": "One of Europe's biggest music festivals",
+    "EventTypeId": "music-festival",
+    "Attendance": 3,
+    "IconPath": "",
+    "IsHumanitarian": false,
+    "AveragePrice": 120.0,
+    "Country": "Serbia",
+    "City": "Novi Sad",
+    "CurrentYearDate": "2024-07-08T00:00:00",
+    "PreviousDates": [
+      "2023-07-06T00:00:00",
+      "2022-07-07T00:00:00"
+    ],
+    "TagIds": [
+      "outdoor",
+      "international"
+    ],
+    "MapX": 200.0,
+    "MapY": 150.0,
+    "IsOnMap": true,
+    "EventType": null,
+    "Tags": [],
+    "AttendanceDisplay": "Over 10000",
+    "PreviousDatesDisplay": "2023-07-06, 2022-07-07",
+    "TagsDisplay": ""
+  },
+  {
+    "EventId": "kustendorf",
+    "Name": "Küstendorf Film Festival",
+    "Description": "International film festival in traditional village setting",
+    "EventTypeId": "film-festival",
+    "Attendance": 1,
+    "IconPath": "",
+    "IsHumanitarian": true,
+    "AveragePrice": 80.0,
+    "Country": "Serbia",
+    "City": "Drvengrad",
+    "CurrentYearDate": "2024-01-15T00:00:00",
+    "PreviousDates": [
+      "2023-01-10T00:00:00",
+      "2022-01-12T00:00:00"
+    ],
+    "TagIds": [
+      "indoor",
+      "international",
+      "family-friendly"
+    ],
+    "MapX": 180.0,
+    "MapY": 160.0,
+    "IsOnMap": true,
+    "EventType": null,
+    "Tags": [],
+    "AttendanceDisplay": "1000-5000",
+    "PreviousDatesDisplay": "2023-01-10, 2022-01-12",
+    "TagsDisplay": ""
+  }
+]

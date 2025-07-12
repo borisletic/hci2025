@@ -1,0 +1,32 @@
+[
+  {
+    "EventTypeId": "music-festival",
+    "Name": "Music Festival",
+    "Description": "Large music events",
+    "IconPath": "/Assets/Icons/music.png"
+  },
+  {
+    "EventTypeId": "film-festival",
+    "Name": "Film Festival",
+    "Description": "Cinema and movie events",
+    "IconPath": "/Assets/Icons/film.png"
+  },
+  {
+    "EventTypeId": "sports-event",
+    "Name": "Sports Event",
+    "Description": "Athletic competitions",
+    "IconPath": "/Assets/Icons/sports.png"
+  },
+  {
+    "EventTypeId": "conference",
+    "Name": "Conference",
+    "Description": "Professional gatherings",
+    "IconPath": "/Assets/Icons/conference.png"
+  },
+  {
+    "EventTypeId": "cultural",
+    "Name": "Cultural Event",
+    "Description": "Art and cultural exhibitions",
+    "IconPath": "/Assets/Icons/culture.png"
+  }
+]

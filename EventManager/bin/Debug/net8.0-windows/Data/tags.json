@@ -1,0 +1,37 @@
+[
+  {
+    "TagId": "outdoor",
+    "Name": "Outdoor",
+    "Description": "Events held outdoors",
+    "Color": "#28A745",
+    "ColorBrush": "#FF28A745"
+  },
+  {
+    "TagId": "indoor",
+    "Name": "Indoor",
+    "Description": "Events held indoors",
+    "Color": "#0066CC",
+    "ColorBrush": "#FF0066CC"
+  },
+  {
+    "TagId": "vip-access",
+    "Name": "VIP Access",
+    "Description": "Premium access available",
+    "Color": "#FFD700",
+    "ColorBrush": "#FFFFD700"
+  },
+  {
+    "TagId": "family-friendly",
+    "Name": "Family Friendly",
+    "Description": "Suitable for all ages",
+    "Color": "#FF6B6B",
+    "ColorBrush": "#FFFF6B6B"
+  },
+  {
+    "TagId": "international",
+    "Name": "International",
+    "Description": "Global event",
+    "Color": "#9B59B6",
+    "ColorBrush": "#FF9B59B6"
+  }
+]
