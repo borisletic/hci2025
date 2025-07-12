@@ -1,12 +1,120 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Win 11\\Desktop\\hci2025\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EB4AA8EA-F005-409F-BCD7-2B8EE3B8DC9D}|EventManager\\EventManager.csproj|c:\\users\\win 11\\desktop\\hci2025\\eventmanager\\models\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB4AA8EA-F005-409F-BCD7-2B8EE3B8DC9D}|EventManager\\EventManager.csproj|solutionrelative:eventmanager\\models\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB4AA8EA-F005-409F-BCD7-2B8EE3B8DC9D}|EventManager\\EventManager.csproj|c:\\users\\win 11\\desktop\\hci2025\\eventmanager\\models\\eventtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB4AA8EA-F005-409F-BCD7-2B8EE3B8DC9D}|EventManager\\EventManager.csproj|solutionrelative:eventmanager\\models\\eventtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB4AA8EA-F005-409F-BCD7-2B8EE3B8DC9D}|EventManager\\EventManager.csproj|c:\\users\\win 11\\desktop\\hci2025\\eventmanager\\models\\tag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB4AA8EA-F005-409F-BCD7-2B8EE3B8DC9D}|EventManager\\EventManager.csproj|solutionrelative:eventmanager\\models\\tag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB4AA8EA-F005-409F-BCD7-2B8EE3B8DC9D}|EventManager\\EventManager.csproj|c:\\users\\win 11\\desktop\\hci2025\\eventmanager\\models\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB4AA8EA-F005-409F-BCD7-2B8EE3B8DC9D}|EventManager\\EventManager.csproj|solutionrelative:eventmanager\\models\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB4AA8EA-F005-409F-BCD7-2B8EE3B8DC9D}|EventManager\\EventManager.csproj|c:\\users\\win 11\\desktop\\hci2025\\eventmanager\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EB4AA8EA-F005-409F-BCD7-2B8EE3B8DC9D}|EventManager\\EventManager.csproj|solutionrelative:eventmanager\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB4AA8EA-F005-409F-BCD7-2B8EE3B8DC9D}|EventManager\\EventManager.csproj|c:\\users\\win 11\\desktop\\hci2025\\eventmanager\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EB4AA8EA-F005-409F-BCD7-2B8EE3B8DC9D}|EventManager\\EventManager.csproj|solutionrelative:eventmanager\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Event.cs",
+              "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\Models\\Event.cs",
+              "RelativeDocumentMoniker": "EventManager\\Models\\Event.cs",
+              "ToolTip": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\Models\\Event.cs",
+              "RelativeToolTip": "EventManager\\Models\\Event.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA0wAUAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-12T20:24:04.11Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EventType.cs",
+              "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\Models\\EventType.cs",
+              "RelativeDocumentMoniker": "EventManager\\Models\\EventType.cs",
+              "ToolTip": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\Models\\EventType.cs",
+              "RelativeToolTip": "EventManager\\Models\\EventType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-12T20:23:43.398Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Tag.cs",
+              "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\Models\\Tag.cs",
+              "RelativeDocumentMoniker": "EventManager\\Models\\Tag.cs",
+              "ToolTip": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\Models\\Tag.cs",
+              "RelativeToolTip": "EventManager\\Models\\Tag.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-12T20:23:19.184Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Enums.cs",
+              "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\Models\\Enums.cs",
+              "RelativeDocumentMoniker": "EventManager\\Models\\Enums.cs",
+              "ToolTip": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\Models\\Enums.cs",
+              "RelativeToolTip": "EventManager\\Models\\Enums.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-12T20:22:52.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "EventManager\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\MainWindow.xaml",
+              "RelativeToolTip": "EventManager\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-12T20:18:20.715Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\App.xaml",
+              "RelativeDocumentMoniker": "EventManager\\App.xaml",
+              "ToolTip": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\App.xaml",
+              "RelativeToolTip": "EventManager\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-12T20:18:06.061Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
