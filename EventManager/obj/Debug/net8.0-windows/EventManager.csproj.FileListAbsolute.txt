@@ -41,3 +41,7 @@ C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\refint\Eve
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\EventManager.pdb
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\EventManager.genruntimeconfig.cache
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\ref\EventManager.dll
+C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\EventTypesInfoPage.baml
+C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\TagsInfoPage.baml
+C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\EventTypesInfoPage.g.cs
+C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\TagsInfoPage.g.cs

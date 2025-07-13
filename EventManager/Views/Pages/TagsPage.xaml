@@ -1,4 +1,5 @@
-﻿<Page x:Class="EventManager.Views.Pages.TagsPage"
+﻿<!-- Views/Pages/TagsPage.xaml - FIXED WITH CLICKABLE BUTTONS -->
+<Page x:Class="EventManager.Views.Pages.TagsPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
@@ -6,8 +7,8 @@
         <!-- Action Bar -->
         <Grid Style="{StaticResource ActionBarStyle}" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <Button x:Name="BackButton" Style="{StaticResource HamburgerButton}"
-                       Content="&#xE700;" Click="BackButton_Click"/>
+                <Button x:Name="HomeButton" Style="{StaticResource HamburgerButton}"
+                    Content="&#xE700;" Click="HomeButton_Click"/>
                 <TextBlock Text="Tags" FontSize="18" FontWeight="Bold"
                           Foreground="{StaticResource WhiteBrush}" VerticalAlignment="Center" Margin="10,0"/>
             </StackPanel>
@@ -17,35 +18,71 @@
         <ScrollViewer Margin="0,60,0,0">
             <StackPanel Style="{StaticResource MobileContainer}">
 
-                <!-- Tags List -->
-                <StackPanel Margin="0,10">
-                    <!-- Open Air -->
-                    <StackPanel Orientation="Horizontal" Margin="0,5">
-                        <Button Content="🏷️" FontSize="20" Background="Transparent" BorderThickness="0" Width="40"/>
-                        <TextBlock Text="Open Air" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Width="80"/>
-                        <Button Content="✏️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
-                        <Button Content="ℹ️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
-                        <Button Content="🗑️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
-                    </StackPanel>
+                <!-- Tags List with DATA BINDING -->
+                <ListView x:Name="TagsListView" 
+                         Background="Transparent"
+                         BorderThickness="0"
+                         Margin="0,10">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Background="{StaticResource WhiteBrush}" 
+                                   BorderBrush="{StaticResource DarkGrayBrush}" 
+                                   BorderThickness="0,0,0,1" 
+                                   Padding="15,10"
+                                   Margin="0,2">
 
-                    <!-- Closed Event -->
-                    <StackPanel Orientation="Horizontal" Margin="0,5">
-                        <Button Content="🏷️" FontSize="20" Background="Transparent" BorderThickness="0" Width="40"/>
-                        <TextBlock Text="Closed Event" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Width="80"/>
-                        <Button Content="✏️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
-                        <Button Content="ℹ️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
-                        <Button Content="🗑️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
-                    </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <!-- Icon -->
+                                    <TextBlock Text="🏷️" FontSize="20" Width="40" VerticalAlignment="Center"/>
 
-                    <!-- VIP Access -->
-                    <StackPanel Orientation="Horizontal" Margin="0,5">
-                        <Button Content="🏷️" FontSize="20" Background="Transparent" BorderThickness="0" Width="40"/>
-                        <TextBlock Text="VIP Access" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Width="80"/>
-                        <Button Content="✏️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
-                        <Button Content="ℹ️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
-                        <Button Content="🗑️" FontSize="16" Background="Transparent" BorderThickness="0" Width="30"/>
-                    </StackPanel>
-                </StackPanel>
+                                    <!-- Name -->
+                                    <TextBlock Text="{Binding Name}" 
+                                              FontSize="16" 
+                                              FontWeight="SemiBold" 
+                                              VerticalAlignment="Center" 
+                                              Width="100" 
+                                              Margin="10,0"/>
+
+                                    <!-- Color indicator -->
+                                    <Rectangle Width="20" Height="15" 
+                                              Fill="{Binding ColorBrush}" 
+                                              Margin="10,0"
+                                              VerticalAlignment="Center"/>
+
+                                    <!-- Action Buttons -->
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <Button Content="✏️" 
+                                               FontSize="16" 
+                                               Background="Transparent" 
+                                               BorderThickness="0" 
+                                               Width="30" 
+                                               Height="30"
+                                               Click="EditTag_Click"
+                                               Foreground="{StaticResource PrimaryBlueBrush}"/>
+
+                                        <Button Content="ℹ️" 
+                                               FontSize="16" 
+                                               Background="Transparent" 
+                                               BorderThickness="0" 
+                                               Width="30" 
+                                               Height="30"
+                                               Click="InfoTag_Click"
+                                               Foreground="{StaticResource SuccessGreenBrush}"/>
+
+                                        <Button Content="🗑️" 
+                                               FontSize="16" 
+                                               Background="Transparent" 
+                                               BorderThickness="0" 
+                                               Width="30" 
+                                               Height="30"
+                                               Click="DeleteTag_Click"
+                                               Foreground="{StaticResource DangerRedBrush}"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
                 <!-- Add New Tag Form -->
                 <Border Background="{StaticResource WhiteBrush}" 
@@ -59,23 +96,27 @@
                         <TextBlock Text="Add New Tag" FontSize="18" FontWeight="Bold" Margin="0,0,0,15"/>
 
                         <TextBlock Text="Tag ID:" Style="{StaticResource FieldLabel}"/>
-                        <TextBox Style="{StaticResource LargeTextBox}"/>
+                        <TextBox x:Name="TagIdTextBox" Style="{StaticResource LargeTextBox}"/>
 
                         <TextBlock Text="Tag Name:" Style="{StaticResource FieldLabel}"/>
-                        <TextBox Style="{StaticResource LargeTextBox}"/>
+                        <TextBox x:Name="TagNameTextBox" Style="{StaticResource LargeTextBox}"/>
 
                         <TextBlock Text="Description:" Style="{StaticResource FieldLabel}"/>
-                        <TextBox Style="{StaticResource LargeTextBox}"/>
+                        <TextBox x:Name="DescriptionTextBox" Style="{StaticResource LargeTextBox}"/>
 
                         <TextBlock Text="Color:" Style="{StaticResource FieldLabel}"/>
                         <StackPanel Orientation="Horizontal">
-                            <Button Content="🎨 Choose color" Style="{StaticResource LargeMobileButton}" Width="150"/>
-                            <TextBlock Text="Color" VerticalAlignment="Center" Margin="10,0"/>
+                            <Button Content="🎨 Choose color" Style="{StaticResource LargeMobileButton}" 
+                                   Width="150" Click="ChooseColor_Click"/>
+                            <Rectangle x:Name="ColorPreview" Width="30" Height="30" 
+                                      Fill="#0066CC" VerticalAlignment="Center" Margin="10,0"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20">
-                            <Button Content="➕ Add New Tag" Style="{StaticResource SuccessButton}" Margin="5"/>
-                            <Button Content="❌ Cancel" Style="{StaticResource DangerButton}" Margin="5"/>
+                            <Button Content="➕ Add New Tag" Style="{StaticResource SuccessButton}" 
+                                   Margin="5" Click="AddTag_Click"/>
+                            <Button Content="❌ Cancel" Style="{StaticResource DangerButton}" 
+                                   Margin="5" Click="CancelAdd_Click"/>
                         </StackPanel>
                     </StackPanel>
                 </Border>

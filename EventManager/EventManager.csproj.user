@@ -14,10 +14,16 @@
     <Compile Update="Views\Pages\EventListPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Pages\EventTypesInfoPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Pages\EventTypesPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Pages\HomePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Pages\TagsInfoPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\Pages\TagsPage.xaml.cs">

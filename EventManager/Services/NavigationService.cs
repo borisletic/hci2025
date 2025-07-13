@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Controls;
 using System.Windows.Navigation;
-using EventManager.Views.Pages;
+using EventManager.Views.Pages; 
 
 namespace EventManager.Services
 {
@@ -30,7 +30,9 @@ namespace EventManager.Services
                 "EditEvent" => new Views.Pages.EventFormPage(),
                 "EventInfo" => new Views.Pages.EventInfoPage(),
                 "EventTypes" => new Views.Pages.EventTypesPage(),
+                "EventTypesInfo" => new Views.Pages.EventTypesInfoPage(),
                 "Tags" => new Views.Pages.TagsPage(),
+                "TagsInfo" => new Views.Pages.TagsInfoPage(),
                 "WorldMap" => new Views.Pages.WorldMapPage(),
                 "Demo" => new Views.Pages.DemoPage(),
                 _ => null
