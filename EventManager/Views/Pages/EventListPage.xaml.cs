@@ -35,7 +35,7 @@ namespace EventManager.Views.Pages
             AttendanceComboBox.ItemsSource = System.Enum.GetValues(typeof(Attendance));
         }
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
             Services.NavigationService.Instance.NavigateTo("Home");
         }

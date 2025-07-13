@@ -7,7 +7,7 @@
         <Grid Style="{StaticResource ActionBarStyle}" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <Button x:Name="BackButton" Style="{StaticResource HamburgerButton}"
-                       Content="&#xE72B;" Click="BackButton_Click"/>
+                       Content="&#xE700;" Click="BackButton_Click"/>
                 <TextBlock Text="World Map" FontSize="18" FontWeight="Bold"
                           Foreground="{StaticResource WhiteBrush}" VerticalAlignment="Center" Margin="10,0"/>
             </StackPanel>

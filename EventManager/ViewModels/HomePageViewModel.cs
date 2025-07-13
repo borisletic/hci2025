@@ -7,7 +7,7 @@ using System.Windows.Threading;
 
 namespace EventManager.ViewModels
 {
-    public partial class HomePageViewModel : INotifyPropertyChanged
+    public class HomePageViewModel : INotifyPropertyChanged
     {
         private readonly DataService _dataService;
         private readonly DispatcherTimer _timer;
@@ -17,13 +17,15 @@ namespace EventManager.ViewModels
         {
             _dataService = DataService.Instance;
 
-            // Setup timer for current time display
+            // IMPORTANT: Set initial time immediately
+            UpdateTime();
+
+            // Setup timer for continuous updates
             _timer = new DispatcherTimer();
             _timer.Interval = TimeSpan.FromSeconds(1);
             _timer.Tick += Timer_Tick;
             _timer.Start();
 
-            UpdateTime();
             LoadStats();
         }
 
@@ -32,8 +34,11 @@ namespace EventManager.ViewModels
             get => _currentTime;
             set
             {
-                _currentTime = value;
-                OnPropertyChanged();
+                if (_currentTime != value)
+                {
+                    _currentTime = value;
+                    OnPropertyChanged();
+                }
             }
         }
 
@@ -52,12 +57,22 @@ namespace EventManager.ViewModels
 
         private void LoadStats()
         {
-            var events = _dataService.GetAllEvents();
-            TotalEvents = events.Count;
-            EventsOnMap = events.Count(e => e.IsOnMap);
+            try
+            {
+                var events = _dataService.GetAllEvents();
+                TotalEvents = events.Count;
+                EventsOnMap = events.Count(e => e.IsOnMap);
 
-            OnPropertyChanged(nameof(TotalEvents));
-            OnPropertyChanged(nameof(EventsOnMap));
+                OnPropertyChanged(nameof(TotalEvents));
+                OnPropertyChanged(nameof(EventsOnMap));
+            }
+            catch (Exception ex)
+            {
+                // Handle any data loading errors gracefully
+                TotalEvents = 0;
+                EventsOnMap = 0;
+                System.Diagnostics.Debug.WriteLine($"Error loading stats: {ex.Message}");
+            }
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -65,6 +80,12 @@ namespace EventManager.ViewModels
         protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        // Cleanup timer when ViewModel is disposed
+        public void Dispose()
+        {
+            _timer?.Stop();
         }
     }
 }

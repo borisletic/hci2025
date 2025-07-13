@@ -36,5 +36,10 @@ namespace EventManager.Views.Pages
         {
             Services.NavigationService.Instance.GoBack();
         }
+
+        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        {
+            Services.NavigationService.Instance.NavigateTo("Home");
+        }
     }
 }
