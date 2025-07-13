@@ -21,7 +21,12 @@
                 <TextBlock Text="📶" FontSize="12" Margin="2,0"/>
                 <TextBlock Text="📶" FontSize="12" Margin="2,0"/>
                 <TextBlock Text="🔋" FontSize="12" Margin="3,0"/>
-                <TextBlock Text="13:27" FontSize="12" Foreground="{StaticResource WhiteBrush}" Margin="3,0"/>
+                <!-- FIXED: Added x:Name and removed hardcoded time -->
+                <TextBlock x:Name="TimeDisplay"
+                          Text="--:--" 
+                          FontSize="12" 
+                          Foreground="{StaticResource WhiteBrush}" 
+                          Margin="3,0"/>
             </StackPanel>
         </Grid>
 

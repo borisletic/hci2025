@@ -1,9 +1,11 @@
 ﻿using EventManager.Models;
 using EventManager.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Threading;
 
 namespace EventManager.Views.Pages
 {
@@ -12,12 +14,42 @@ namespace EventManager.Views.Pages
         private readonly DataService _dataService;
         private List<Event> _allEvents = new();
         private List<Event> _filteredEvents = new();
+        private DispatcherTimer? _timeTimer;
 
         public EventListPage()
         {
             InitializeComponent();
             _dataService = DataService.Instance;
+            InitializeTimeDisplay();
             LoadData();
+        }
+
+        // ADDED: Time display initialization (same as HomePage)
+        private void InitializeTimeDisplay()
+        {
+            // Set initial time immediately
+            UpdateTimeDisplay();
+
+            // Create timer for time updates
+            _timeTimer = new DispatcherTimer();
+            _timeTimer.Interval = TimeSpan.FromSeconds(1);
+            _timeTimer.Tick += TimeTimer_Tick;
+            _timeTimer.Start();
+        }
+
+        // ADDED: Timer tick handler
+        private void TimeTimer_Tick(object? sender, EventArgs e)
+        {
+            UpdateTimeDisplay();
+        }
+
+        // ADDED: Update time display method
+        private void UpdateTimeDisplay()
+        {
+            if (TimeDisplay != null)
+            {
+                TimeDisplay.Text = DateTime.Now.ToString("HH:mm");
+            }
         }
 
         private void LoadData()
@@ -37,6 +69,8 @@ namespace EventManager.Views.Pages
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
+            // ADDED: Stop timer when navigating away
+            _timeTimer?.Stop();
             Services.NavigationService.Instance.NavigateTo("Home");
         }
 
@@ -148,6 +182,8 @@ namespace EventManager.Views.Pages
         {
             if (sender is Button button && button.DataContext is Event eventToEdit)
             {
+                // Stop timer when navigating away
+                _timeTimer?.Stop();
                 Services.NavigationService.Instance.NavigateTo("EditEvent", eventToEdit);
             }
         }
@@ -156,8 +192,16 @@ namespace EventManager.Views.Pages
         {
             if (sender is Button button && button.DataContext is Event eventToView)
             {
+                // Stop timer when navigating away
+                _timeTimer?.Stop();
                 Services.NavigationService.Instance.NavigateTo("EventInfo", eventToView);
             }
+        }
+
+        // ADDED: Cleanup when page is unloaded
+        private void Page_Unloaded(object sender, RoutedEventArgs e)
+        {
+            _timeTimer?.Stop();
         }
     }
 }
