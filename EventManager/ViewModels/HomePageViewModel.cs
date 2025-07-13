@@ -40,7 +40,7 @@ namespace EventManager.ViewModels
         public int TotalEvents { get; private set; }
         public int EventsOnMap { get; private set; }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        private void Timer_Tick(object? sender, EventArgs e)
         {
             UpdateTime();
         }

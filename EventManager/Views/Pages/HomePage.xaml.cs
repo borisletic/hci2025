@@ -7,18 +7,26 @@ namespace EventManager.Views.Pages
 {
     public partial class HomePage : Page
     {
+        private HomePageViewModel _viewModel;
+
         public HomePage()
         {
             InitializeComponent();
-            DataContext = new HomePageViewModel();
+            _viewModel = new HomePageViewModel();
+            DataContext = _viewModel;
         }
 
         private void MenuButton_Click(object sender, RoutedEventArgs e)
         {
-            // For now, just show a message. In full implementation, 
-            // this would show a slide-out menu
-            MessageBox.Show("Menu functionality would go here", "Menu",
-                          MessageBoxButton.OK, MessageBoxImage.Information);
+            // Refresh the main page by reloading data and updating stats
+            RefreshHomePage();
+        }
+
+        private void RefreshHomePage()
+        {
+            // Create new ViewModel instance to refresh data
+            _viewModel = new HomePageViewModel();
+            DataContext = _viewModel;
         }
 
         private void ViewAllEventsButton_Click(object sender, RoutedEventArgs e)

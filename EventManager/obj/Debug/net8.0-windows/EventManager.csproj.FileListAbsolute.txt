@@ -17,7 +17,6 @@ C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Page
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\WorldMapPage.baml
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\App.baml
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\MainWindow.g.cs
-C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\ViewModels\HomePageViewModel.g.cs
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\DemoPage.g.cs
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\EventFormPage.g.cs
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\EventInfoPage.g.cs
@@ -30,7 +29,6 @@ C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\App.g.cs
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\EventManager_MarkupCompile.cache
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\EventManager_MarkupCompile.lref
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\MainWindow.baml
-C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\ViewModels\HomePageViewModel.baml
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\EventManager.g.resources
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\EventManager.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\EventManager.AssemblyInfoInputs.cache

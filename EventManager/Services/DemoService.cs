@@ -1,5 +1,4 @@
-﻿using EventManager.Services;
-using EventManager.Models;
+﻿using EventManager.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -43,6 +42,11 @@ namespace EventManager.Services
             catch (OperationCanceledException)
             {
                 // Demo was cancelled - this is expected
+                OnDemoAction("Demo was cancelled");
+            }
+            catch (Exception ex)
+            {
+                OnDemoAction($"Demo error: {ex.Message}");
             }
             finally
             {
@@ -65,43 +69,42 @@ namespace EventManager.Services
         {
             var demoSteps = new List<DemoStep>
             {
-                new("Welcome to Event Manager Demo!", async () => {
+                new("🏠 Starting Demo - Welcome to Event Manager!", async () => {
                     _navigationService.NavigateTo("Home");
-                    await Task.Delay(2000, cancellationToken);
+                    await Task.Delay(3000, cancellationToken);
                 }),
 
-                new("Viewing all events in the system", async () => {
+                new("📅 Navigating to Event List to show all events", async () => {
                     _navigationService.NavigateTo("EventList");
-                    await Task.Delay(3000, cancellationToken);
+                    await Task.Delay(4000, cancellationToken);
                 }),
 
-                new("Let's look at the world map view", async () => {
+                new("🌍 Exploring the World Map feature", async () => {
                     _navigationService.NavigateTo("WorldMap");
+                    await Task.Delay(4000, cancellationToken);
+                }),
+
+                new("➕ Demonstrating how to add a new event", async () => {
+                    _navigationService.NavigateTo("AddEvent");
                     await Task.Delay(3000, cancellationToken);
                 }),
 
-                new("Now we'll create a new event", async () => {
-                    _navigationService.NavigateTo("AddEvent");
+                new("⚙️ Checking Event Types management", async () => {
+                    _navigationService.NavigateTo("EventTypes");
+                    await Task.Delay(3000, cancellationToken);
+                }),
+
+                new("🏷️ Reviewing Tags for event categorization", async () => {
+                    _navigationService.NavigateTo("Tags");
+                    await Task.Delay(3000, cancellationToken);
+                }),
+
+                new("🔙 Returning to Home screen", async () => {
+                    _navigationService.NavigateTo("Home");
                     await Task.Delay(2000, cancellationToken);
                 }),
 
-                new("Filling out event details automatically", async () => {
-                    // This would simulate filling out the form
-                    await SimulateEventCreation(cancellationToken);
-                }),
-
-                new("Checking event types management", async () => {
-                    _navigationService.NavigateTo("EventTypes");
-                    await Task.Delay(2500, cancellationToken);
-                }),
-
-                new("Looking at tags for categorization", async () => {
-                    _navigationService.NavigateTo("Tags");
-                    await Task.Delay(2500, cancellationToken);
-                }),
-
-                new("Returning to home screen", async () => {
-                    _navigationService.NavigateTo("Home");
+                new("✅ Demo cycle completed! Starting again...", async () => {
                     await Task.Delay(2000, cancellationToken);
                 })
             };
@@ -114,34 +117,33 @@ namespace EventManager.Services
                     if (cancellationToken.IsCancellationRequested) break;
 
                     OnDemoAction(step.Description);
-                    await step.Action();
+
+                    try
+                    {
+                        await step.Action();
+                    }
+                    catch (OperationCanceledException)
+                    {
+                        throw; // Re-throw cancellation
+                    }
+                    catch (Exception ex)
+                    {
+                        OnDemoAction($"Step error: {ex.Message}");
+                    }
                 }
 
                 // Wait before restarting the cycle
-                await Task.Delay(3000, cancellationToken);
-                OnDemoAction("Restarting demo cycle...");
+                if (!cancellationToken.IsCancellationRequested)
+                {
+                    await Task.Delay(2000, cancellationToken);
+                    OnDemoAction("🔄 Restarting demo cycle...");
+                }
             }
-        }
-
-        private async Task SimulateEventCreation(CancellationToken cancellationToken)
-        {
-            // This would simulate user input in the form
-            await Task.Delay(1000, cancellationToken);
-            OnDemoAction("Entering event name: 'Demo Music Festival'");
-
-            await Task.Delay(1000, cancellationToken);
-            OnDemoAction("Setting event type to 'Music Festival'");
-
-            await Task.Delay(1000, cancellationToken);
-            OnDemoAction("Adding location: Belgrade, Serbia");
-
-            await Task.Delay(1500, cancellationToken);
-            OnDemoAction("Event creation simulated - going to next step");
         }
 
         private void OnDemoAction(string action)
         {
-            Application.Current.Dispatcher.Invoke(() =>
+            Application.Current?.Dispatcher.Invoke(() =>
             {
                 DemoActionOccurred?.Invoke(this, action);
             });

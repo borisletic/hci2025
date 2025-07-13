@@ -10,8 +10,8 @@ namespace EventManager.Views.Pages
     public partial class EventListPage : Page
     {
         private readonly DataService _dataService;
-        private List<Event> _allEvents;
-        private List<Event> _filteredEvents;
+        private List<Event> _allEvents = new();
+        private List<Event> _filteredEvents = new();
 
         public EventListPage()
         {
