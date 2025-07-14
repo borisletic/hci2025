@@ -11,8 +11,10 @@ C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Page
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\EventFormPage.baml
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\EventInfoPage.baml
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\EventListPage.baml
+C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\EventTypesInfoPage.baml
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\EventTypesPage.baml
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\HomePage.baml
+C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\TagsInfoPage.baml
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\TagsPage.baml
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\WorldMapPage.baml
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\App.baml
@@ -21,8 +23,10 @@ C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Page
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\EventFormPage.g.cs
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\EventInfoPage.g.cs
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\EventListPage.g.cs
+C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\EventTypesInfoPage.g.cs
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\EventTypesPage.g.cs
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\HomePage.g.cs
+C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\TagsInfoPage.g.cs
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\TagsPage.g.cs
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\WorldMapPage.g.cs
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\App.g.cs
@@ -41,7 +45,3 @@ C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\refint\Eve
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\EventManager.pdb
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\EventManager.genruntimeconfig.cache
 C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\ref\EventManager.dll
-C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\EventTypesInfoPage.baml
-C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\TagsInfoPage.baml
-C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\EventTypesInfoPage.g.cs
-C:\Users\Win 11\Desktop\hci2025\EventManager\obj\Debug\net8.0-windows\Views\Pages\TagsInfoPage.g.cs

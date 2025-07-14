@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Grid Background="{StaticResource LightGrayBrush}">
-        <!-- Action Bar with Status -->
+        <!-- Action Bar - SIMPLIFIED -->
         <Grid Style="{StaticResource ActionBarStyle}" VerticalAlignment="Top" Height="60">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <!-- Hamburger Menu -->
@@ -21,21 +21,7 @@
                           Margin="10,0"/>
             </StackPanel>
 
-            <!-- Status indicators (signal, battery, time) -->
-            <StackPanel Orientation="Horizontal" 
-                       HorizontalAlignment="Right"
-                       VerticalAlignment="Center"
-                       Margin="0,0,15,0">
-                <TextBlock Text="📶" FontSize="12" Margin="3,0"/>
-                <TextBlock Text="📶" FontSize="12" Margin="3,0"/>
-                <TextBlock Text="📶" FontSize="12" Margin="3,0"/>
-                <TextBlock Text="🔋" FontSize="12" Margin="5,0"/>
-                <TextBlock x:Name="TimeDisplay"
-                          Text="--:--" 
-                          FontSize="12" 
-                          Foreground="{StaticResource WhiteBrush}"
-                          Margin="5,0"/>
-            </StackPanel>
+            <!-- REMOVED: Status indicators (signal, battery, time) -->
         </Grid>
 
         <!-- Main Content - Buttons filling entire space -->

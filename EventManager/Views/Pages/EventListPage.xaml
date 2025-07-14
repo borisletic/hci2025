@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Grid Background="{StaticResource LightGrayBrush}">
-        <!-- Action Bar -->
+        <!-- Action Bar - SIMPLIFIED -->
         <Grid Style="{StaticResource ActionBarStyle}" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <Button x:Name="HomeButton" Style="{StaticResource HamburgerButton}"
@@ -11,23 +11,7 @@
                 <TextBlock Text="Event List &amp; Search" FontSize="18" FontWeight="Bold"
                           Foreground="{StaticResource WhiteBrush}" VerticalAlignment="Center" Margin="10,0"/>
             </StackPanel>
-
-            <!-- Status indicators -->
-            <StackPanel Orientation="Horizontal" 
-                       HorizontalAlignment="Right"
-                       VerticalAlignment="Center"
-                       Margin="0,0,15,0">
-                <TextBlock Text="📶" FontSize="12" Margin="2,0"/>
-                <TextBlock Text="📶" FontSize="12" Margin="2,0"/>
-                <TextBlock Text="📶" FontSize="12" Margin="2,0"/>
-                <TextBlock Text="🔋" FontSize="12" Margin="3,0"/>
-                <!-- FIXED: Added x:Name and removed hardcoded time -->
-                <TextBlock x:Name="TimeDisplay"
-                          Text="--:--" 
-                          FontSize="12" 
-                          Foreground="{StaticResource WhiteBrush}" 
-                          Margin="3,0"/>
-            </StackPanel>
+            <!-- REMOVED: Status indicators (signal, battery, time) -->
         </Grid>
 
         <!-- Content - Scrollable as in wireframe -->
