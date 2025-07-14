@@ -5,6 +5,12 @@
     <Compile Update="Views\Pages\DemoPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Pages\EditEventTypesPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Pages\EditTagsPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Pages\EventFormPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

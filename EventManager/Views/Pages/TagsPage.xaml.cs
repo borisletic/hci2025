@@ -39,13 +39,12 @@ namespace EventManager.Views.Pages
             }
         }
 
-        // Edit button click handler
+        // Edit button click handler - UPDATED to navigate to edit page
         private void EditTag_Click(object sender, RoutedEventArgs e)
         {
             if (sender is Button button && button.DataContext is Tag tagToEdit)
             {
-                MessageBox.Show($"Edit Tag: {tagToEdit.Name}", "Edit",
-                              MessageBoxButton.OK, MessageBoxImage.Information);
+                Services.NavigationService.Instance.NavigateTo("EditTags", tagToEdit);
             }
         }
 

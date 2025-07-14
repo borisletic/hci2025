@@ -37,13 +37,12 @@ namespace EventManager.Views.Pages
             }
         }
 
-        // Edit button click handler
+        // Edit button click handler - UPDATED to navigate to edit page
         private void EditEventType_Click(object sender, RoutedEventArgs e)
         {
             if (sender is Button button && button.DataContext is EventType eventTypeToEdit)
             {
-                MessageBox.Show($"Edit Event Type: {eventTypeToEdit.Name}", "Edit",
-                              MessageBoxButton.OK, MessageBoxImage.Information);
+                Services.NavigationService.Instance.NavigateTo("EditEventTypes", eventTypeToEdit);
             }
         }
 
