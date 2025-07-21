@@ -84,7 +84,7 @@ namespace EventManager.Views.Pages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/EventManager;component/views/pages/editeventtypespage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/EventManager;V1.0.0.0;component/views/pages/editeventtypespage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\Pages\EditEventTypesPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

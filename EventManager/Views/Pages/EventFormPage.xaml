@@ -79,7 +79,7 @@
                         <TextBlock Text="📅 2023-08-10" Margin="10,5"/>
                     </StackPanel>
 
-                    <TextBlock Text="Labels:" Style="{StaticResource FieldLabel}"/>
+                    <TextBlock Text="Tags:" Style="{StaticResource FieldLabel}"/>
                     <StackPanel>
                         <CheckBox Content="closed" Margin="10,5"/>
                         <CheckBox Content="open air" IsChecked="True" Margin="10,5"/>

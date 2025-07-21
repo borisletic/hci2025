@@ -56,7 +56,7 @@
                 <TextBlock Text="Previous Dates:" Style="{StaticResource FieldLabel}"/>
                 <TextBlock Text="{Binding PreviousDatesDisplay}" FontSize="16" Margin="10,0,0,10"/>
 
-                <TextBlock Text="Labels:" Style="{StaticResource FieldLabel}"/>
+                <TextBlock Text="Tags:" Style="{StaticResource FieldLabel}"/>
                 <TextBlock Text="✓ open air" FontSize="16" Margin="10,0,0,10"/>
 
                 <Button Content="🔙 Back" Style="{StaticResource PrimaryButton}" 
