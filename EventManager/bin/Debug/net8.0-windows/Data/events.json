@@ -19,14 +19,37 @@
       "outdoor",
       "international"
     ],
-    "MapX": 200.0,
-    "MapY": 150.0,
-    "IsOnMap": true,
-    "EventType": null,
-    "Tags": [],
+    "MapX": 0.0,
+    "MapY": 0.0,
+    "IsOnMap": false,
+    "EventType": {
+      "EventTypeId": "music-festival",
+      "Name": "Music Festival",
+      "Description": "Large music events",
+      "IconPath": "/Assets/Icons/music.png"
+    },
+    "Tags": [
+      {
+        "TagId": "outdoor",
+        "Name": "Outdoor",
+        "Description": "Events held outdoors",
+        "Color": "#28A745",
+        "ColorBrush": "#FF28A745"
+      },
+      {
+        "TagId": "international",
+        "Name": "International",
+        "Description": "Global event",
+        "Color": "#9B59B6",
+        "ColorBrush": "#FF9B59B6"
+      }
+    ],
     "AttendanceDisplay": "Over 10000",
     "PreviousDatesDisplay": "2023-07-06, 2022-07-07",
-    "TagsDisplay": ""
+    "TagsDisplay": "Outdoor, International",
+    "LocationDisplay": "Novi Sad, Serbia",
+    "EventTypeIcon": "🎵",
+    "MapTooltip": "Exit Festival\nNovi Sad, Serbia\nOver 10000 attendees\n$120.0"
   },
   {
     "EventId": "kustendorf",
@@ -49,13 +72,43 @@
       "international",
       "family-friendly"
     ],
-    "MapX": 180.0,
-    "MapY": 160.0,
+    "MapX": 51.0,
+    "MapY": 108.44,
     "IsOnMap": true,
-    "EventType": null,
-    "Tags": [],
+    "EventType": {
+      "EventTypeId": "film-festival",
+      "Name": "Film Festival",
+      "Description": "Cinema and movie events",
+      "IconPath": "/Assets/Icons/film.png"
+    },
+    "Tags": [
+      {
+        "TagId": "indoor",
+        "Name": "Indoor",
+        "Description": "Events held indoors",
+        "Color": "#0066CC",
+        "ColorBrush": "#FF0066CC"
+      },
+      {
+        "TagId": "family-friendly",
+        "Name": "Family Friendly",
+        "Description": "Suitable for all ages",
+        "Color": "#FF6B6B",
+        "ColorBrush": "#FFFF6B6B"
+      },
+      {
+        "TagId": "international",
+        "Name": "International",
+        "Description": "Global event",
+        "Color": "#9B59B6",
+        "ColorBrush": "#FF9B59B6"
+      }
+    ],
     "AttendanceDisplay": "1000-5000",
     "PreviousDatesDisplay": "2023-01-10, 2022-01-12",
-    "TagsDisplay": ""
+    "TagsDisplay": "Indoor, Family Friendly, International",
+    "LocationDisplay": "Drvengrad, Serbia",
+    "EventTypeIcon": "🎬",
+    "MapTooltip": "Küstendorf Film Festival\nDrvengrad, Serbia\n1000-5000 attendees\n$80.0"
   }
 ]
