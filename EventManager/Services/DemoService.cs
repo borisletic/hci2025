@@ -58,10 +58,33 @@ namespace EventManager.Services
 
         public void StopDemo()
         {
-            if (_isDemoRunning && _cancellationTokenSource != null)
+            try
             {
-                _cancellationTokenSource.Cancel();
-                OnDemoAction("Demo stopped by user");
+                if (_isDemoRunning && _cancellationTokenSource != null)
+                {
+                    // Cancel the demo
+                    _cancellationTokenSource.Cancel();
+
+                    // Update the flag immediately
+                    _isDemoRunning = false;
+
+                    // Fire the event to notify UI
+                    OnDemoAction("Demo stopped by user");
+
+                    // Clean up
+                    _cancellationTokenSource?.Dispose();
+                    _cancellationTokenSource = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the error but don't throw - we want stopping to always work
+                OnDemoAction($"Error stopping demo: {ex.Message}");
+
+                // Force cleanup
+                _isDemoRunning = false;
+                _cancellationTokenSource?.Dispose();
+                _cancellationTokenSource = null;
             }
         }
 

@@ -189,7 +189,7 @@
                          Padding="8"
                          BorderThickness="2"
                          BorderBrush="{StaticResource DarkGrayBrush}"
-                         Text="Search for locations, events, or countries..."
+                         
                          Foreground="{StaticResource DarkGrayBrush}"
                          FontStyle="Italic"/>
 

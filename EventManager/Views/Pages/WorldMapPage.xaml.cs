@@ -464,7 +464,7 @@ namespace EventManager.Views.Pages
 
         private void SearchMapTextBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (SearchMapTextBox != null && SearchMapTextBox.Text == "Search for locations, events, or countries...")
+            if (SearchMapTextBox != null)
             {
                 SearchMapTextBox.Text = "";
                 SearchMapTextBox.Foreground = new SolidColorBrush(Colors.Black);
@@ -476,7 +476,7 @@ namespace EventManager.Views.Pages
         {
             if (SearchMapTextBox != null && string.IsNullOrWhiteSpace(SearchMapTextBox.Text))
             {
-                SearchMapTextBox.Text = "Search for locations, events, or countries...";
+                
                 SearchMapTextBox.Foreground = new SolidColorBrush(Colors.Gray);
                 SearchMapTextBox.FontStyle = FontStyles.Italic;
             }
@@ -484,7 +484,7 @@ namespace EventManager.Views.Pages
 
         private void SearchMapTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (SearchMapTextBox == null || SearchMapTextBox.Text == "Search for locations, events, or countries...")
+            if (SearchMapTextBox == null)
                 return;
 
             var searchText = SearchMapTextBox.Text.ToLower().Trim();

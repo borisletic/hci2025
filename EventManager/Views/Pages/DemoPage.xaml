@@ -48,73 +48,25 @@
                         <!-- Control Buttons -->
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
                             <Button x:Name="StartDemoButton" 
-                                   Content="▶️ Start Demo" 
-                                   Style="{StaticResource SuccessButton}" 
-                                   Click="StartDemoButton_Click" 
-                                   Margin="5"/>
+                                    Content="▶️ Start Demo" 
+                                    Style="{StaticResource SuccessButton}" 
+                                    Click="StartDemoButton_Click" 
+                                    Margin="5"
+                                    MinWidth="120"
+                                    IsEnabled="True"/>
 
                             <Button x:Name="StopDemoButton" 
-                                   Content="⏹️ Stop Demo" 
-                                   Style="{StaticResource DangerButton}" 
-                                   Click="StopDemoButton_Click" 
-                                   Margin="5"
-                                   IsEnabled="False"/>
+                                    Content="⏹️ Stop Demo" 
+                                    Style="{StaticResource DangerButton}" 
+                                    Click="StopDemoButton_Click" 
+                                    Margin="5"
+                                    MinWidth="120"
+                                    IsEnabled="False"/>
                         </StackPanel>
+
                     </StackPanel>
                 </Border>
 
-                <!-- Demo Instructions -->
-                <Border Background="{StaticResource WhiteBrush}" 
-                       BorderBrush="{StaticResource DarkGrayBrush}" 
-                       BorderThickness="1" 
-                       CornerRadius="8" 
-                       Padding="15" 
-                       Margin="0,20">
-
-                    <StackPanel>
-                        <TextBlock Text="💡 Demo Features:" FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
-
-                        <TextBlock Text="• Automatic navigation between screens" FontSize="14" Margin="0,2" TextWrapping="Wrap"/>
-                        <TextBlock Text="• Shows event list and search functionality" FontSize="14" Margin="0,2" TextWrapping="Wrap"/>
-                        <TextBlock Text="• Demonstrates world map features" FontSize="14" Margin="0,2" TextWrapping="Wrap"/>
-                        <TextBlock Text="• Simulates creating new events" FontSize="14" Margin="0,2" TextWrapping="Wrap"/>
-                        <TextBlock Text="• Cycles through all main features" FontSize="14" Margin="0,2" TextWrapping="Wrap"/>
-
-                        <TextBlock Text="Press any key or the Stop button to end the demo." 
-                                  FontSize="12" 
-                                  FontStyle="Italic" 
-                                  Margin="0,15,0,0"
-                                  TextWrapping="Wrap"/>
-                    </StackPanel>
-                </Border>
-
-                <!-- Demo Benefits for Ana -->
-                <Border Background="{StaticResource LightGrayBrush}" 
-                       BorderBrush="{StaticResource SuccessGreenBrush}" 
-                       BorderThickness="2" 
-                       CornerRadius="8" 
-                       Padding="15" 
-                       Margin="0,20">
-
-                    <StackPanel>
-                        <TextBlock Text="✨ Perfect for Learning!" FontSize="16" FontWeight="Bold" Margin="0,0,0,10" 
-                                  Foreground="{StaticResource SuccessGreenBrush}"/>
-
-                        <TextBlock Text="This demo mode is specially designed to help you:" FontSize="14" Margin="0,0,0,10" TextWrapping="Wrap"/>
-
-                        <TextBlock Text="👀 See how each feature works without clicking anything" FontSize="14" Margin="0,2" TextWrapping="Wrap"/>
-                        <TextBlock Text="🎯 Learn the app at your own pace" FontSize="14" Margin="0,2" TextWrapping="Wrap"/>
-                        <TextBlock Text="🔄 Watch the demo as many times as you need" FontSize="14" Margin="0,2" TextWrapping="Wrap"/>
-                        <TextBlock Text="⏹️ Stop anytime by pressing any key" FontSize="14" Margin="0,2" TextWrapping="Wrap"/>
-
-                        <TextBlock Text="Just sit back and watch the app show you around!" 
-                                  FontSize="13" 
-                                  FontStyle="Italic" 
-                                  Margin="0,10,0,0"
-                                  TextWrapping="Wrap"
-                                  Foreground="{StaticResource DarkGrayBrush}"/>
-                    </StackPanel>
-                </Border>
 
                 <!-- Back Button -->
                 <Button Content="🏠 Back to Home" 

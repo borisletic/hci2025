@@ -13,13 +13,35 @@ namespace EventManager.Views.Pages
         {
             InitializeComponent();
             _demoService = DemoService.Instance;
-            _navigationService = Services.NavigationService.Instance; // Fix: Properly instantiate
+            _navigationService = Services.NavigationService.Instance;
+
+            // Subscribe to demo events
             _demoService.DemoActionOccurred += OnDemoActionOccurred;
+
+            // Initialize button states
+            InitializeButtonStates();
+        }
+
+        private void InitializeButtonStates()
+        {
+            if (StartDemoButton != null && StopDemoButton != null)
+            {
+                if (_demoService.IsDemoRunning)
+                {
+                    StartDemoButton.IsEnabled = false;
+                    StopDemoButton.IsEnabled = true;
+                }
+                else
+                {
+                    StartDemoButton.IsEnabled = true;
+                    StopDemoButton.IsEnabled = false;
+                }
+            }
         }
 
         private void OnDemoActionOccurred(object? sender, string action)
         {
-            // Update demo status display
+            // Update demo status display on UI thread
             Dispatcher.Invoke(() =>
             {
                 if (DemoStatusText != null)
@@ -31,52 +53,91 @@ namespace EventManager.Views.Pages
 
         private async void StartDemoButton_Click(object sender, RoutedEventArgs e)
         {
-            StartDemoButton.IsEnabled = false;
-            StopDemoButton.IsEnabled = true;
-
-            if (DemoStatusText != null)
+            try
             {
-                DemoStatusText.Text = "Demo is starting...";
+                StartDemoButton.IsEnabled = false;
+                StopDemoButton.IsEnabled = true;
+
+                if (DemoStatusText != null)
+                {
+                    DemoStatusText.Text = "Demo is starting...";
+                }
+
+                await _demoService.StartDemoAsync();
+
+                // Re-enable buttons when demo finishes naturally
+                StartDemoButton.IsEnabled = true;
+                StopDemoButton.IsEnabled = false;
+
+                if (DemoStatusText != null)
+                {
+                    DemoStatusText.Text = "Demo finished. Ready to start again.";
+                }
             }
-
-            await _demoService.StartDemoAsync();
-
-            // Re-enable buttons when demo finishes
-            StartDemoButton.IsEnabled = true;
-            StopDemoButton.IsEnabled = false;
-
-            if (DemoStatusText != null)
+            catch (System.Exception ex)
             {
-                DemoStatusText.Text = "Demo finished. Ready to start again.";
+                MessageBox.Show($"Error starting demo: {ex.Message}", "Demo Error",
+                              MessageBoxButton.OK, MessageBoxImage.Error);
+
+                // Reset button states on error
+                StartDemoButton.IsEnabled = true;
+                StopDemoButton.IsEnabled = false;
             }
         }
 
         private void StopDemoButton_Click(object sender, RoutedEventArgs e)
         {
-            _demoService.StopDemo();
-
-            StartDemoButton.IsEnabled = true;
-            StopDemoButton.IsEnabled = false;
-
-            if (DemoStatusText != null)
+            try
             {
-                DemoStatusText.Text = "Demo stopped by user.";
-            }
+                // Stop the demo
+                _demoService.StopDemo();
 
-            // Navigate back to Home
-            _navigationService.NavigateTo("Home");
+                // Update button states immediately
+                StartDemoButton.IsEnabled = true;
+                StopDemoButton.IsEnabled = false;
+
+                if (DemoStatusText != null)
+                {
+                    DemoStatusText.Text = "Demo stopped by user.";
+                }
+
+                // Navigate back to Home
+                _navigationService.NavigateTo("Home");
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show($"Error stopping demo: {ex.Message}", "Demo Error",
+                              MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            // Stop demo if running
-            if (_demoService.IsDemoRunning)
+            try
             {
-                _demoService.StopDemo();
-            }
+                // Stop demo if running
+                if (_demoService.IsDemoRunning)
+                {
+                    _demoService.StopDemo();
+                }
 
-            // Navigate back to Home page
-            _navigationService.NavigateTo("Home");
+                // Navigate back to Home page
+                _navigationService.NavigateTo("Home");
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show($"Error navigating back: {ex.Message}", "Navigation Error",
+                              MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        // Clean up event subscription when page is unloaded
+        private void Page_Unloaded(object sender, RoutedEventArgs e)
+        {
+            if (_demoService != null)
+            {
+                _demoService.DemoActionOccurred -= OnDemoActionOccurred;
+            }
         }
     }
 }
