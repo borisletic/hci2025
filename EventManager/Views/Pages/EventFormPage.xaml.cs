@@ -12,6 +12,7 @@ namespace EventManager.Views.Pages
         private readonly DataService _dataService;
         private Event? _editingEvent;
         private bool _isEditMode;
+        private string _selectedIcon = "🎪"; // Default event icon
 
         public EventFormPage()
         {
@@ -83,6 +84,10 @@ namespace EventManager.Views.Pages
             CountryTextBox.Text = _editingEvent.Country;
             CityTextBox.Text = _editingEvent.City;
             DateTextBox.Text = _editingEvent.CurrentYearDate.ToString("MM/dd/yyyy");
+
+            // Load current icon or use default
+            _selectedIcon = string.IsNullOrEmpty(_editingEvent.IconPath) ? "🎪" : _editingEvent.IconPath;
+            UpdateIconPreview();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -121,10 +126,27 @@ namespace EventManager.Views.Pages
             Services.NavigationService.Instance.NavigateTo("Home");
         }
 
+        // UPDATED: Implement icon cycling selection for events
         private void ChooseIconButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Icon selection would be implemented here", "Icon Selection",
-                          MessageBoxButton.OK, MessageBoxImage.Information);
+            // Predefined icons for events
+            var icons = new[] { "🎪", "🎵", "🎬", "🏀", "💼", "🎭", "🎨", "🌟", "🎆", "🎊" };
+            var currentIndex = System.Array.IndexOf(icons, _selectedIcon);
+            _selectedIcon = icons[(currentIndex + 1) % icons.Length];
+            UpdateIconPreview();
+        }
+
+        private void UpdateIconPreview()
+        {
+            // Update the button text and preview
+            if (ChooseIconButton != null)
+            {
+                ChooseIconButton.Content = $"{_selectedIcon} Choose icon...";
+            }
+            if (IconPreview != null)
+            {
+                IconPreview.Text = _selectedIcon;
+            }
         }
 
         private void AddPreviousDateButton_Click(object sender, RoutedEventArgs e)
@@ -170,6 +192,7 @@ namespace EventManager.Views.Pages
             eventObj.EventTypeId = EventTypeComboBox.SelectedValue?.ToString() ?? "";
             eventObj.Attendance = (Attendance)(AttendanceComboBox.SelectedValue ?? Attendance.UpTo1000);
             eventObj.IsHumanitarian = HumanitarianCheckBox.IsChecked ?? false;
+            eventObj.IconPath = _selectedIcon; // Save selected icon
 
             if (decimal.TryParse(AveragePriceTextBox.Text, out decimal price))
                 eventObj.AveragePrice = price;
