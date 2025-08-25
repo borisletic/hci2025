@@ -57,7 +57,7 @@
     "Description": "International film festival in traditional village setting",
     "EventTypeId": "film-festival",
     "Attendance": 1,
-    "IconPath": "",
+    "IconPath": "🎬",
     "IsHumanitarian": true,
     "AveragePrice": 80.0,
     "Country": "Serbia",
@@ -72,8 +72,8 @@
       "international",
       "family-friendly"
     ],
-    "MapX": 108.0,
-    "MapY": 100.44,
+    "MapX": 206.0,
+    "MapY": 101.28000000000003,
     "IsOnMap": true,
     "EventType": {
       "EventTypeId": "film-festival",

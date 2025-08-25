@@ -1,4 +1,6 @@
-﻿using EventManager.Models;
+﻿// EventManager/Models/Event.cs - UPDATED with EventTypeIcon property
+
+using EventManager.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -59,7 +61,7 @@ namespace EventManager.Models
         public string IconPath
         {
             get => _iconPath;
-            set { _iconPath = value; OnPropertyChanged(); }
+            set { _iconPath = value; OnPropertyChanged(); OnPropertyChanged(nameof(EventTypeIcon)); }
         }
 
         public bool IsHumanitarian
@@ -134,17 +136,58 @@ namespace EventManager.Models
 
         // Map-specific helper properties
         public string LocationDisplay => $"{City}, {Country}";
+
+        // UPDATED: EventTypeIcon now uses proper priority system
         public string EventTypeIcon
         {
             get
             {
-                if (EventType?.Name?.ToLower().Contains("music") == true) return "🎵";
-                if (EventType?.Name?.ToLower().Contains("film") == true) return "🎬";
-                if (EventType?.Name?.ToLower().Contains("sports") == true) return "🏀";
-                if (EventType?.Name?.ToLower().Contains("conference") == true) return "💼";
-                if (EventType?.Name?.ToLower().Contains("cultural") == true) return "🎭";
-                return "🎪"; // Default icon
+                // Priority 1: Use event's specific icon if available
+                if (!string.IsNullOrEmpty(IconPath) && !IconPath.Contains("/") && !IconPath.Contains("\\"))
+                {
+                    return IconPath;
+                }
+
+                // Priority 2: Use event type's icon if available
+                if (EventType != null && !string.IsNullOrEmpty(EventType.IconPath))
+                {
+                    if (!EventType.IconPath.Contains("/") && !EventType.IconPath.Contains("\\"))
+                    {
+                        return EventType.IconPath;
+                    }
+                    else
+                    {
+                        return ConvertFilePathToEmoji(EventType.IconPath);
+                    }
+                }
+
+                // Priority 3: Fallback to type-based icons
+                if (EventType?.Name != null)
+                {
+                    var typeName = EventType.Name.ToLower();
+                    if (typeName.Contains("music")) return "🎵";
+                    if (typeName.Contains("film")) return "🎬";
+                    if (typeName.Contains("sports")) return "🏀";
+                    if (typeName.Contains("conference")) return "💼";
+                    if (typeName.Contains("cultural")) return "🎭";
+                }
+
+                // Priority 4: Default fallback
+                return "🎪";
             }
+        }
+
+        // Helper method for converting file paths to emojis
+        private string ConvertFilePathToEmoji(string filePath)
+        {
+            var path = filePath.ToLower();
+            if (path.Contains("music")) return "🎵";
+            if (path.Contains("film") || path.Contains("movie")) return "🎬";
+            if (path.Contains("sports")) return "🏀";
+            if (path.Contains("conference") || path.Contains("business")) return "💼";
+            if (path.Contains("cultural") || path.Contains("culture")) return "🎭";
+            if (path.Contains("art")) return "🎨";
+            return "🎪";
         }
 
         public string MapTooltip => $"{Name}\n{City}, {Country}\n{AttendanceDisplay} attendees\n${AveragePrice}";

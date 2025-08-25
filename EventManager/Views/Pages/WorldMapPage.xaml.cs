@@ -1,4 +1,7 @@
-﻿using EventManager.Models;
+﻿// EventManager/Views/Pages/WorldMapPage.xaml.cs
+// DYNAMIC VERSION - Works with any number of events
+
+using EventManager.Models;
 using EventManager.Services;
 using System;
 using System.Collections.Generic;
@@ -16,6 +19,7 @@ namespace EventManager.Views.Pages
         private List<Event> _allEvents = new();
         private List<Event> _availableEvents = new();
         private List<Event> _eventsOnMap = new();
+        private List<Event> _filteredAvailableEvents = new(); // For filter support
 
         // Drag & Drop variables
         private bool _isDragging = false;
@@ -40,8 +44,9 @@ namespace EventManager.Views.Pages
                 _allEvents = _dataService.GetAllEvents();
                 _availableEvents = _allEvents.Where(e => !e.IsOnMap).ToList();
                 _eventsOnMap = _allEvents.Where(e => e.IsOnMap).ToList();
+                _filteredAvailableEvents = _availableEvents.ToList();
 
-                RefreshEventButtons();
+                RefreshAvailableEventsDisplay();
                 RefreshEventsOnMap();
                 RefreshMapVisual();
             }
@@ -52,63 +57,17 @@ namespace EventManager.Views.Pages
             }
         }
 
-        private void RefreshEventButtons()
+        // DYNAMIC: Refresh available events display
+        private void RefreshAvailableEventsDisplay()
         {
-            // Update button visibility based on available events
-            var availableEventNames = _availableEvents.Select(e => e.Name.ToLower()).ToList();
-
-            if (KustendorfButton != null)
-                KustendorfButton.Visibility = availableEventNames.Any(n => n.Contains("küstendorf") || n.Contains("kustendorf"))
-                    ? Visibility.Visible : Visibility.Collapsed;
-
-            if (CoachellaButton != null)
-                CoachellaButton.Visibility = availableEventNames.Any(n => n.Contains("coachella"))
-                    ? Visibility.Visible : Visibility.Collapsed;
-
-            if (ExitFestivalButton != null)
-                ExitFestivalButton.Visibility = availableEventNames.Any(n => n.Contains("exit"))
-                    ? Visibility.Visible : Visibility.Collapsed;
-
-            if (NBAButton != null)
-                NBAButton.Visibility = availableEventNames.Any(n => n.Contains("nba") || n.Contains("world cup") || n.Contains("wimbledon"))
-                    ? Visibility.Visible : Visibility.Collapsed;
-        }
-
-        private void RefreshEventsOnMap()
-        {
-            if (EventsOnMapListView != null)
+            if (AvailableEventsPanel != null)
             {
-                EventsOnMapListView.ItemsSource = _eventsOnMap;
-            }
-
-            if (NoEventsOnMapText != null)
-            {
-                NoEventsOnMapText.Visibility = _eventsOnMap.Count == 0 ? Visibility.Visible : Visibility.Collapsed;
-            }
-
-            if (EventsOnMapSection != null)
-            {
-                EventsOnMapSection.Visibility = _eventsOnMap.Count > 0 ? Visibility.Visible : Visibility.Collapsed;
-            }
-        }
-
-        private void RefreshMapVisual()
-        {
-            if (MapCanvas == null) return;
-
-            // Remove existing event markers from map
-            var eventMarkers = MapCanvas.Children.OfType<Border>()
-                .Where(b => b.Tag is Event).ToList();
-
-            foreach (var marker in eventMarkers)
-            {
-                MapCanvas.Children.Remove(marker);
-            }
-
-            // Add event markers for events on map
-            foreach (var evt in _eventsOnMap)
-            {
-                AddEventToMapVisual(evt);
+                // Populate events with proper icons
+                foreach (var evt in _filteredAvailableEvents)
+                {
+                    evt.EventType = _dataService.GetEventTypeById(evt.EventTypeId); // Ensure EventType is loaded
+                }
+                AvailableEventsPanel.ItemsSource = _filteredAvailableEvents;
             }
         }
 
@@ -152,14 +111,91 @@ namespace EventManager.Views.Pages
             MapCanvas.Children.Add(eventMarker);
         }
 
+        // DYNAMIC: GetEventIcon now properly uses event's actual icon
         private string GetEventIcon(Event evt)
         {
-            if (evt.EventType?.Name?.ToLower().Contains("music") == true) return "🎵";
-            if (evt.EventType?.Name?.ToLower().Contains("film") == true) return "🎬";
-            if (evt.EventType?.Name?.ToLower().Contains("sports") == true) return "🏀";
-            if (evt.EventType?.Name?.ToLower().Contains("conference") == true) return "💼";
-            if (evt.EventType?.Name?.ToLower().Contains("cultural") == true) return "🎭";
+            // Priority 1: Use event's specific icon if available
+            if (!string.IsNullOrEmpty(evt.IconPath) && !evt.IconPath.Contains("/") && !evt.IconPath.Contains("\\"))
+            {
+                return evt.IconPath;
+            }
+
+            // Priority 2: Use event type's icon if available
+            if (evt.EventType != null && !string.IsNullOrEmpty(evt.EventType.IconPath))
+            {
+                if (!evt.EventType.IconPath.Contains("/") && !evt.EventType.IconPath.Contains("\\"))
+                {
+                    return evt.EventType.IconPath;
+                }
+                else
+                {
+                    return ConvertFilePathToEmoji(evt.EventType.IconPath);
+                }
+            }
+
+            // Priority 3: Fallback to type-based icons
+            if (evt.EventType?.Name != null)
+            {
+                var typeName = evt.EventType.Name.ToLower();
+                if (typeName.Contains("music")) return "🎵";
+                if (typeName.Contains("film")) return "🎬";
+                if (typeName.Contains("sports")) return "🏀";
+                if (typeName.Contains("conference")) return "💼";
+                if (typeName.Contains("cultural")) return "🎭";
+            }
+
+            // Priority 4: Default fallback
             return "🎪";
+        }
+
+        private string ConvertFilePathToEmoji(string filePath)
+        {
+            var path = filePath.ToLower();
+            if (path.Contains("music")) return "🎵";
+            if (path.Contains("film") || path.Contains("movie")) return "🎬";
+            if (path.Contains("sports")) return "🏀";
+            if (path.Contains("conference") || path.Contains("business")) return "💼";
+            if (path.Contains("cultural") || path.Contains("culture")) return "🎭";
+            if (path.Contains("art")) return "🎨";
+            return "🎪";
+        }
+
+        private void RefreshEventsOnMap()
+        {
+            if (EventsOnMapListView != null)
+            {
+                EventsOnMapListView.ItemsSource = _eventsOnMap;
+            }
+
+            if (NoEventsOnMapText != null)
+            {
+                NoEventsOnMapText.Visibility = _eventsOnMap.Count == 0 ? Visibility.Visible : Visibility.Collapsed;
+            }
+
+            if (EventsOnMapSection != null)
+            {
+                EventsOnMapSection.Visibility = _eventsOnMap.Count > 0 ? Visibility.Visible : Visibility.Collapsed;
+            }
+        }
+
+        private void RefreshMapVisual()
+        {
+            if (MapCanvas == null) return;
+
+            // Remove existing event markers from map
+            var eventMarkers = MapCanvas.Children.OfType<Border>()
+                .Where(b => b.Tag is Event).ToList();
+
+            foreach (var marker in eventMarkers)
+            {
+                MapCanvas.Children.Remove(marker);
+            }
+
+            // Add event markers for events on map
+            foreach (var evt in _eventsOnMap)
+            {
+                AddEventToMapVisual(evt);
+            }
         }
 
         private void SetupMapEvents()
@@ -190,17 +226,14 @@ namespace EventManager.Views.Pages
 
         private void EventButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (sender is Button button)
+            if (sender is Button button && button.Tag is Event evt)
             {
-                _draggedEvent = GetEventForButton(button);
-                if (_draggedEvent != null)
-                {
-                    _isDragging = true;
-                    _draggedButton = button;
-                    _dragStartPoint = e.GetPosition(button);
-                    button.CaptureMouse();
-                    e.Handled = true;
-                }
+                _draggedEvent = evt;
+                _isDragging = true;
+                _draggedButton = button;
+                _dragStartPoint = e.GetPosition(button);
+                button.CaptureMouse();
+                e.Handled = true;
             }
         }
 
@@ -246,28 +279,6 @@ namespace EventManager.Views.Pages
                 _isDragging = false;
                 _draggedEvent = null;
                 _draggedButton = null;
-            }
-        }
-
-        private Event? GetEventForButton(Button button)
-        {
-            var buttonName = button.Name;
-            switch (buttonName)
-            {
-                case "KustendorfButton":
-                    return _availableEvents.FirstOrDefault(e => e.Name.ToLower().Contains("küstendorf") || e.Name.ToLower().Contains("kustendorf"));
-                case "CoachellaButton":
-                    return _availableEvents.FirstOrDefault(e => e.Name.ToLower().Contains("coachella"));
-                case "ExitFestivalButton":
-                    return _availableEvents.FirstOrDefault(e => e.Name.ToLower().Contains("exit"));
-                case "NBAButton":
-                    return _availableEvents.FirstOrDefault(e =>
-                        e.Name.ToLower().Contains("nba") ||
-                        e.Name.ToLower().Contains("world cup") ||
-                        e.Name.ToLower().Contains("wimbledon") ||
-                        e.Name.ToLower().Contains("fifa"));
-                default:
-                    return null;
             }
         }
 
@@ -419,37 +430,30 @@ namespace EventManager.Views.Pages
 
         #region Filter Methods
 
+        // DYNAMIC: Filter now works with any events
         private void MapFilterTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (MapFilterTextBox == null) return;
 
             var filterText = MapFilterTextBox.Text.ToLower().Trim();
 
-            // Show/hide buttons based on filter
             if (string.IsNullOrWhiteSpace(filterText))
             {
-                // Show all available event buttons
-                RefreshEventButtons();
+                // Show all available events
+                _filteredAvailableEvents = _availableEvents.ToList();
             }
             else
             {
-                // Filter buttons
-                if (KustendorfButton != null)
-                    KustendorfButton.Visibility = "kustendorf".Contains(filterText) && _availableEvents.Any(e => e.Name.ToLower().Contains("kustendorf"))
-                        ? Visibility.Visible : Visibility.Collapsed;
-
-                if (CoachellaButton != null)
-                    CoachellaButton.Visibility = "coachella".Contains(filterText) && _availableEvents.Any(e => e.Name.ToLower().Contains("coachella"))
-                        ? Visibility.Visible : Visibility.Collapsed;
-
-                if (ExitFestivalButton != null)
-                    ExitFestivalButton.Visibility = "exit festival".Contains(filterText) && _availableEvents.Any(e => e.Name.ToLower().Contains("exit"))
-                        ? Visibility.Visible : Visibility.Collapsed;
-
-                if (NBAButton != null)
-                    NBAButton.Visibility = "nba".Contains(filterText) && _availableEvents.Any(e => e.Name.ToLower().Contains("nba") || e.Name.ToLower().Contains("world cup") || e.Name.ToLower().Contains("wimbledon"))
-                        ? Visibility.Visible : Visibility.Collapsed;
+                // Filter events based on name, description, city, or country
+                _filteredAvailableEvents = _availableEvents.Where(evt =>
+                    evt.Name.ToLower().Contains(filterText) ||
+                    evt.Description.ToLower().Contains(filterText) ||
+                    evt.City.ToLower().Contains(filterText) ||
+                    evt.Country.ToLower().Contains(filterText)
+                ).ToList();
             }
+
+            RefreshAvailableEventsDisplay();
         }
 
         private void MapFilterTextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -476,7 +480,6 @@ namespace EventManager.Views.Pages
         {
             if (SearchMapTextBox != null && string.IsNullOrWhiteSpace(SearchMapTextBox.Text))
             {
-                
                 SearchMapTextBox.Foreground = new SolidColorBrush(Colors.Gray);
                 SearchMapTextBox.FontStyle = FontStyles.Italic;
             }
