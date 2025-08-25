@@ -21,7 +21,32 @@ namespace EventManager.Views.Pages
         private void LoadEventTypes()
         {
             var eventTypes = _dataService.GetAllEventTypes();
+
+            // Convert file paths to emojis for display
+            foreach (var eventType in eventTypes)
+            {
+                if (!string.IsNullOrEmpty(eventType.IconPath) &&
+                    (eventType.IconPath.Contains("/") || eventType.IconPath.Contains("\\")))
+                {
+                    // Convert file path to emoji for display
+                    eventType.IconPath = ConvertFilePathToEmoji(eventType.IconPath);
+                }
+            }
+
             EventTypesListView.ItemsSource = eventTypes;
+        }
+
+        private string ConvertFilePathToEmoji(string filePath)
+        {
+            // Convert old file paths to emojis based on the path content
+            var path = filePath.ToLower();
+            if (path.Contains("music")) return "🎵";
+            if (path.Contains("film") || path.Contains("movie")) return "🎬";
+            if (path.Contains("sports")) return "🏀";
+            if (path.Contains("conference") || path.Contains("business")) return "💼";
+            if (path.Contains("cultural") || path.Contains("culture")) return "🎭";
+            if (path.Contains("art")) return "🎨";
+            return "⚙️"; // default
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)

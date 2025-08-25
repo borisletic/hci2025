@@ -26,7 +26,7 @@
       "EventTypeId": "music-festival",
       "Name": "Music Festival",
       "Description": "Large music events",
-      "IconPath": "/Assets/Icons/music.png"
+      "IconPath": "🎵"
     },
     "Tags": [
       {
@@ -79,7 +79,7 @@
       "EventTypeId": "film-festival",
       "Name": "Film Festival",
       "Description": "Cinema and movie events",
-      "IconPath": "/Assets/Icons/film.png"
+      "IconPath": "🎬"
     },
     "Tags": [
       {

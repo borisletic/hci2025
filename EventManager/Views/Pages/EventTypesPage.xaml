@@ -32,8 +32,8 @@
                                    Margin="0,2">
 
                                 <StackPanel Orientation="Horizontal">
-                                    <!-- Icon -->
-                                    <TextBlock Text="⚙️" FontSize="20" Width="40" VerticalAlignment="Center"/>
+                                    <!-- Icon - Now shows actual icon from data -->
+                                    <TextBlock Text="{Binding IconPath}" FontSize="20" Width="40" VerticalAlignment="Center"/>
 
                                     <!-- Name -->
                                     <TextBlock Text="{Binding Name}" 

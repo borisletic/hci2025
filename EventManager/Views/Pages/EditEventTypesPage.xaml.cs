@@ -35,9 +35,40 @@ namespace EventManager.Views.Pages
             NameTextBox.Text = _currentEventType.Name;
             DescriptionTextBox.Text = _currentEventType.Description;
 
-            // Load current icon or use default
-            _selectedIcon = string.IsNullOrEmpty(_currentEventType.IconPath) ? "⚙️" : _currentEventType.IconPath;
+            // Load current icon or use default - handle file paths vs emojis
+            if (!string.IsNullOrEmpty(_currentEventType.IconPath))
+            {
+                // Check if it's a file path or an emoji
+                if (_currentEventType.IconPath.Contains("/") || _currentEventType.IconPath.Contains("\\"))
+                {
+                    // It's a file path, convert to appropriate emoji based on type
+                    _selectedIcon = ConvertFilePathToEmoji(_currentEventType.IconPath);
+                }
+                else
+                {
+                    // It's already an emoji
+                    _selectedIcon = _currentEventType.IconPath;
+                }
+            }
+            else
+            {
+                _selectedIcon = "⚙️";
+            }
+
             UpdateIconPreview();
+        }
+
+        private string ConvertFilePathToEmoji(string filePath)
+        {
+            // Convert old file paths to emojis based on the path content
+            var path = filePath.ToLower();
+            if (path.Contains("music")) return "🎵";
+            if (path.Contains("film") || path.Contains("movie")) return "🎬";
+            if (path.Contains("sports")) return "🏀";
+            if (path.Contains("conference") || path.Contains("business")) return "💼";
+            if (path.Contains("cultural") || path.Contains("culture")) return "🎭";
+            if (path.Contains("art")) return "🎨";
+            return "⚙️"; // default
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
