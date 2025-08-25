@@ -5,7 +5,7 @@
     "Description": "One of Europe's biggest music festivals",
     "EventTypeId": "music-festival",
     "Attendance": 3,
-    "IconPath": "🏀",
+    "IconPath": "🎵",
     "IsHumanitarian": false,
     "AveragePrice": 120.0,
     "Country": "Serbia",

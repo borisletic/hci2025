@@ -69,7 +69,8 @@
                     <TextBlock Text="Date This Year:" Style="{StaticResource FieldLabel}"/>
                     <StackPanel Orientation="Horizontal">
                         <TextBox x:Name="DateTextBox" Style="{StaticResource LargeTextBox}" Width="200" Text="/ /"/>
-                        <Button Content="📅" Style="{StaticResource LargeMobileButton}" Width="50" Margin="5,0"/>
+                        <Button x:Name="CalendarButton" Content="📅" Style="{StaticResource LargeMobileButton}" 
+                               Width="50" Margin="5,0" Click="CalendarButton_Click"/>
                     </StackPanel>
 
                     <TextBlock Text="Previous Dates:" Style="{StaticResource FieldLabel}"/>
@@ -78,7 +79,9 @@
                             <Button Content="📅 Add previous date" Style="{StaticResource LargeMobileButton}" 
                                    Click="AddPreviousDateButton_Click" Margin="5"/>
                         </StackPanel>
-                        <TextBlock Text="📅 2023-08-10" Margin="10,5"/>
+                        <StackPanel x:Name="PreviousDatesPanel" Margin="0,5">
+                            <!-- Previous dates will be added here dynamically -->
+                        </StackPanel>
                     </StackPanel>
 
                     <TextBlock Text="Tags:" Style="{StaticResource FieldLabel}"/>
