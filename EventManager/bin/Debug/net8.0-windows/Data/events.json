@@ -19,8 +19,8 @@
       "outdoor",
       "international"
     ],
-    "MapX": 50.0,
-    "MapY": 74.56,
+    "MapX": 134.0,
+    "MapY": 106.56,
     "IsOnMap": true,
     "EventType": {
       "EventTypeId": "music-festival",
@@ -72,8 +72,8 @@
       "international",
       "family-friendly"
     ],
-    "MapX": 141.0,
-    "MapY": 120.56,
+    "MapX": 158.0,
+    "MapY": 137.56,
     "IsOnMap": true,
     "EventType": {
       "EventTypeId": "film-festival",

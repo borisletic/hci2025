@@ -148,7 +148,7 @@ namespace EventManager.Views.Pages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/EventManager;component/views/pages/worldmappage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/EventManager;V1.0.0.0;component/views/pages/worldmappage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\Views\Pages\WorldMapPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
