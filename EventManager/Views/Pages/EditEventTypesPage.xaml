@@ -27,8 +27,12 @@
                 <TextBox x:Name="DescriptionTextBox" Style="{StaticResource LargeTextBox}"/>
 
                 <TextBlock Text="Icon:" Style="{StaticResource FieldLabel}"/>
-                <Button Content="📁 Choose icon" Style="{StaticResource LargeMobileButton}" 
-                       HorizontalAlignment="Left" Click="ChooseIcon_Click"/>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="ChooseIconButton" Content="⚙️ Choose icon" Style="{StaticResource LargeMobileButton}" 
+                           Width="150" Click="ChooseIcon_Click"/>
+                    <TextBlock x:Name="IconPreview" Text="⚙️" FontSize="24" 
+                              VerticalAlignment="Center" Margin="10,0" Width="30"/>
+                </StackPanel>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,30">
                     <Button Content="💾 Save" Style="{StaticResource SuccessButton}" 

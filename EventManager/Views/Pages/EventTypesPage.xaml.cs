@@ -9,6 +9,7 @@ namespace EventManager.Views.Pages
     public partial class EventTypesPage : Page
     {
         private readonly DataService _dataService;
+        private string _selectedIcon = "⚙️"; // Default icon
 
         public EventTypesPage()
         {
@@ -37,7 +38,7 @@ namespace EventManager.Views.Pages
             }
         }
 
-        // Edit button click handler - UPDATED to navigate to edit page
+        // Edit button click handler
         private void EditEventType_Click(object sender, RoutedEventArgs e)
         {
             if (sender is Button button && button.DataContext is EventType eventTypeToEdit)
@@ -71,7 +72,7 @@ namespace EventManager.Views.Pages
                     EventTypeId = EventTypeIdTextBox.Text.Trim(),
                     Name = NameTextBox.Text.Trim(),
                     Description = DescriptionTextBox.Text.Trim(),
-                    IconPath = "/Assets/Icons/default.png"
+                    IconPath = _selectedIcon // Use selected icon instead of default path
                 };
 
                 _dataService.AddEventType(newEventType);
@@ -105,6 +106,8 @@ namespace EventManager.Views.Pages
             EventTypeIdTextBox.Text = "";
             NameTextBox.Text = "";
             DescriptionTextBox.Text = "";
+            _selectedIcon = "⚙️"; // Reset to default icon
+            UpdateIconPreview();
         }
 
         private void CancelAdd_Click(object sender, RoutedEventArgs e)
@@ -112,9 +115,27 @@ namespace EventManager.Views.Pages
             ClearForm();
         }
 
+        // UPDATED: Implement icon cycling selection
         private void ChooseIcon_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Icon selection would be implemented here", "Icon Selection");
+            // Predefined icons for event types
+            var icons = new[] { "⚙️", "🎵", "🎬", "🏀", "💼", "🎭", "🎪", "🎨", "📚", "🌟" };
+            var currentIndex = System.Array.IndexOf(icons, _selectedIcon);
+            _selectedIcon = icons[(currentIndex + 1) % icons.Length];
+            UpdateIconPreview();
+        }
+
+        private void UpdateIconPreview()
+        {
+            // Update the button text and preview
+            if (ChooseIconButton != null)
+            {
+                ChooseIconButton.Content = $"{_selectedIcon} Choose icon";
+            }
+            if (IconPreview != null)
+            {
+                IconPreview.Text = _selectedIcon;
+            }
         }
 
         private void HomeButton_Click(object sender, RoutedEventArgs e)

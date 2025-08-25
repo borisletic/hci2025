@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "C:\\Users\\Win 11\\Desktop\\hci2025\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{EB4AA8EA-F005-409F-BCD7-2B8EE3B8DC9D}|EventManager\\EventManager.csproj|c:\\users\\win 11\\desktop\\hci2025\\eventmanager\\views\\pages\\eventtypespage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB4AA8EA-F005-409F-BCD7-2B8EE3B8DC9D}|EventManager\\EventManager.csproj|solutionrelative:eventmanager\\views\\pages\\eventtypespage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB4AA8EA-F005-409F-BCD7-2B8EE3B8DC9D}|EventManager\\EventManager.csproj|c:\\users\\win 11\\desktop\\hci2025\\eventmanager\\views\\pages\\eventtypespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EB4AA8EA-F005-409F-BCD7-2B8EE3B8DC9D}|EventManager\\EventManager.csproj|solutionrelative:eventmanager\\views\\pages\\eventtypespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB4AA8EA-F005-409F-BCD7-2B8EE3B8DC9D}|EventManager\\EventManager.csproj|c:\\users\\win 11\\desktop\\hci2025\\eventmanager\\views\\pages\\editeventtypespage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB4AA8EA-F005-409F-BCD7-2B8EE3B8DC9D}|EventManager\\EventManager.csproj|solutionrelative:eventmanager\\views\\pages\\editeventtypespage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB4AA8EA-F005-409F-BCD7-2B8EE3B8DC9D}|EventManager\\EventManager.csproj|c:\\users\\win 11\\desktop\\hci2025\\eventmanager\\views\\pages\\editeventtypespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{EB4AA8EA-F005-409F-BCD7-2B8EE3B8DC9D}|EventManager\\EventManager.csproj|solutionrelative:eventmanager\\views\\pages\\editeventtypespage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{EB4AA8EA-F005-409F-BCD7-2B8EE3B8DC9D}|EventManager\\EventManager.csproj|c:\\users\\win 11\\desktop\\hci2025\\eventmanager\\views\\pages\\eventlistpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{EB4AA8EA-F005-409F-BCD7-2B8EE3B8DC9D}|EventManager\\EventManager.csproj|solutionrelative:eventmanager\\views\\pages\\eventlistpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -38,11 +54,61 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EditEventTypesPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\Views\\Pages\\EditEventTypesPage.xaml.cs",
+              "RelativeDocumentMoniker": "EventManager\\Views\\Pages\\EditEventTypesPage.xaml.cs",
+              "ToolTip": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\Views\\Pages\\EditEventTypesPage.xaml.cs",
+              "RelativeToolTip": "EventManager\\Views\\Pages\\EditEventTypesPage.xaml.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAswGYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T02:12:43.142Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EditEventTypesPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\Views\\Pages\\EditEventTypesPage.xaml",
+              "RelativeDocumentMoniker": "EventManager\\Views\\Pages\\EditEventTypesPage.xaml",
+              "ToolTip": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\Views\\Pages\\EditEventTypesPage.xaml",
+              "RelativeToolTip": "EventManager\\Views\\Pages\\EditEventTypesPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-25T02:12:40.337Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "EventTypesPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\Views\\Pages\\EventTypesPage.xaml",
+              "RelativeDocumentMoniker": "EventManager\\Views\\Pages\\EventTypesPage.xaml",
+              "ToolTip": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\Views\\Pages\\EventTypesPage.xaml",
+              "RelativeToolTip": "EventManager\\Views\\Pages\\EventTypesPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-25T02:12:17.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EventTypesPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\Views\\Pages\\EventTypesPage.xaml.cs",
+              "RelativeDocumentMoniker": "EventManager\\Views\\Pages\\EventTypesPage.xaml.cs",
+              "ToolTip": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\Views\\Pages\\EventTypesPage.xaml.cs",
+              "RelativeToolTip": "EventManager\\Views\\Pages\\EventTypesPage.xaml.cs",
+              "ViewState": "AgIAAHEAAAAAAAAAAADwv5EAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T02:11:59.435Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "EventListPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\Views\\Pages\\EventListPage.xaml.cs",
               "RelativeDocumentMoniker": "EventManager\\Views\\Pages\\EventListPage.xaml.cs",
@@ -50,12 +116,11 @@
               "RelativeToolTip": "EventManager\\Views\\Pages\\EventListPage.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T01:59:26.524Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-25T01:59:26.524Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "EventListPage.xaml",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\Views\\Pages\\EventListPage.xaml",
               "RelativeDocumentMoniker": "EventManager\\Views\\Pages\\EventListPage.xaml",
@@ -67,7 +132,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "DemoService.cs",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\Services\\DemoService.cs",
               "RelativeDocumentMoniker": "EventManager\\Services\\DemoService.cs",
@@ -75,12 +140,11 @@
               "RelativeToolTip": "EventManager\\Services\\DemoService.cs",
               "ViewState": "AgIAAD0AAAAAAAAAAAAiwFgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T01:39:23.021Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-14T01:39:23.021Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "DemoPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\Views\\Pages\\DemoPage.xaml.cs",
               "RelativeDocumentMoniker": "EventManager\\Views\\Pages\\DemoPage.xaml.cs",
@@ -92,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "DemoPage.xaml",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\Views\\Pages\\DemoPage.xaml",
               "RelativeDocumentMoniker": "EventManager\\Views\\Pages\\DemoPage.xaml",
@@ -103,7 +167,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "WorldMapPage.xaml",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\Views\\Pages\\WorldMapPage.xaml",
               "RelativeDocumentMoniker": "EventManager\\Views\\Pages\\WorldMapPage.xaml",
@@ -114,7 +178,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "WorldMapPage.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Win 11\\Desktop\\hci2025\\EventManager\\Views\\Pages\\WorldMapPage.xaml.cs",
               "RelativeDocumentMoniker": "EventManager\\Views\\Pages\\WorldMapPage.xaml.cs",

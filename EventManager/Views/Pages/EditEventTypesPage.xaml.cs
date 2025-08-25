@@ -9,6 +9,7 @@ namespace EventManager.Views.Pages
     {
         private readonly DataService _dataService;
         private EventType? _currentEventType;
+        private string _selectedIcon = "⚙️";
 
         public EditEventTypesPage()
         {
@@ -33,6 +34,10 @@ namespace EventManager.Views.Pages
             EventTypeIdTextBox.Text = _currentEventType.EventTypeId;
             NameTextBox.Text = _currentEventType.Name;
             DescriptionTextBox.Text = _currentEventType.Description;
+
+            // Load current icon or use default
+            _selectedIcon = string.IsNullOrEmpty(_currentEventType.IconPath) ? "⚙️" : _currentEventType.IconPath;
+            UpdateIconPreview();
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
@@ -48,6 +53,7 @@ namespace EventManager.Views.Pages
                 {
                     _currentEventType.Name = NameTextBox.Text.Trim();
                     _currentEventType.Description = DescriptionTextBox.Text.Trim();
+                    _currentEventType.IconPath = _selectedIcon; // Save selected icon
 
                     _dataService.UpdateEventType(_currentEventType);
                     MessageBox.Show("Event Type updated successfully!", "Success");
@@ -71,9 +77,27 @@ namespace EventManager.Views.Pages
             Services.NavigationService.Instance.NavigateTo("EventTypes");
         }
 
+        // UPDATED: Implement icon cycling selection
         private void ChooseIcon_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Icon selection would be implemented here", "Icon Selection");
+            // Predefined icons for event types
+            var icons = new[] { "⚙️", "🎵", "🎬", "🏀", "💼", "🎭", "🎪", "🎨", "📚", "🌟" };
+            var currentIndex = System.Array.IndexOf(icons, _selectedIcon);
+            _selectedIcon = icons[(currentIndex + 1) % icons.Length];
+            UpdateIconPreview();
+        }
+
+        private void UpdateIconPreview()
+        {
+            // Update the button text and preview
+            if (ChooseIconButton != null)
+            {
+                ChooseIconButton.Content = $"{_selectedIcon} Choose icon";
+            }
+            if (IconPreview != null)
+            {
+                IconPreview.Text = _selectedIcon;
+            }
         }
     }
 }
